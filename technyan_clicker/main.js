@@ -7,9 +7,10 @@ var SCREEN_CENTER_X = SCREEN_WIDTH/2;
 var SCREEN_CENTER_Y = SCREEN_HEIGHT/2;
 
 var ASSETS = {
-    "background" : "background.png",
-    "tekunyan" : "tekunyan.png",
-    "tekunyan_little" : "tekunyan_little.png",
+    "background" : "dat/background.png",
+    "tekunyan" : "dat/tekunyan.png",
+    "tekunyan_little" : "dat/tekunyan_little.png",
+    "shine" : "dat/shine.png",
 };
 
 tm.main(function() {
@@ -17,6 +18,7 @@ tm.main(function() {
     app.resize(SCREEN_WIDTH, SCREEN_HEIGHT);
     app.fitWindow();
     // app.enableStats();
+    app.fps = 30;
 
     var loading = tm.app.LoadingScene({
         width: SCREEN_WIDTH,
@@ -38,8 +40,18 @@ tm.define("MainScene", {
         background.setPosition(SCREEN_CENTER_X, SCREEN_CENTER_Y);
         this.addChild(background);
 
+        var tekuMinis = [];//プールで
+        var index = 0;
         var tekuMiniGroup = tm.app.CanvasElement();
         this.addChild(tekuMiniGroup);
+
+        var shine = tm.app.Sprite("shine", 500, 500);
+        shine.setPosition(SCREEN_CENTER_X, SCREEN_CENTER_Y);
+        shine.alpha = 0.25;
+        shine.update = function () {
+            shine.rotation += 1;
+        };
+        this.addChild(shine);
 
         var teku = Teku();
         this.addChild(teku);
@@ -58,26 +70,43 @@ tm.define("MainScene", {
                     x: SCREEN_CENTER_X,
                     y: teku.y - 200,
                     fillStyle: "#eee",
-                    fontSize: 50,
+                    fontSize: 45,
                     align: "center",
                     baseline: "middle",
+                    fontFamily: "'Kavoon', 'Consolas'",
                 },
             ]
         });
 
         var self = this;
+        var aryNum = 0;
+        document.title = num + " technyans - TechnyanClicker";
+        
         teku.onpointingstart = function() {
             num++;
-            console.log(num);
+            // num += tm.util.Random.randint(1, 100000);
+            // console.log(num);
             self.scoreLabel.text = num;
-            self.scoreLabel.text += "technyans";
+            self.scoreLabel.text += " technyans";
             document.title = num + " technyans - TechnyanClicker";
 
-            teku.setSize(this.width / 1.1, this.height / 1.1);//ここに書きたくはない
+            //TODO:+1とかのあれ
 
-            var tekuMini = TekuMini().addChildTo(tekuMiniGroup);//addChildTo:parentに自分を子どもとして追加
-            tekuMini.setPosition(tm.util.Random.randint(0, SCREEN_WIDTH), 0);
-            tekuMini.speed = tm.util.Random.randint(2, 5);
+            teku.setSize(this.width / 1.1, this.height / 1.1);
+
+            if (tekuMinis[index]) {
+                tekuMiniGroup.removeChild(tekuMinis[index]);//これしないと描画が更新され続け
+            }
+            tekuMinis[index] = TekuMini().addChildTo(tekuMiniGroup);
+            tekuMinis[index].setPosition(tm.util.Random.randint(0, SCREEN_WIDTH), 0);
+            tekuMinis[index].speed = tm.util.Random.randint(3, 8);
+            index++;
+            if (index > 200) index = 0;
+            // for (var tete in tekuMinis) {
+            //     aryNum++;
+            // }
+            // console.log(aryNum);
+            // aryNum = 0;
         };
     },
 });
@@ -114,6 +143,6 @@ tm.define("TekuMini", {
     },
     update : function() {
         this.y += this.speed;
-        if (this.y > SCREEN_HEIGHT) this.isUpdate = false;
+        if (this.y > SCREEN_HEIGHT) this.speed = 0;
     },
 });
