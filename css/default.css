@@ -1,3 +1,6 @@
 .product { margin-bottom: 20px; }
 .img-thumbnail { max-height: 300px; }
+.label { margin-right: 5px; }
+.btn { margin-right: 5px; }
+.glyphicon { margin-left: 3px; }
 footer { margin-top: 50px ; padding: 50px 0px; background-color: #222; color: #fff; }
