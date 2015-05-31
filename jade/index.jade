@@ -1,0 +1,83 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.col-md-12
+                h1#product.page-header Welcome to yashihei.net
+                p yashihei.netへようこそ！このサイトではやしへいが製作したゲームなどの公開をしてます。
+        div.row
+            div.col-md-12
+                h1.page-header 作ったもの
+        mixin product(title, img_resource, ...labels)
+            div.row.product
+                div.col-md-4
+                    img.img-thumbnail(src="#{img_resource}" alt="")
+                div.col-md-8
+                    h2= title
+                    p
+                        each label in labels
+                            span.label.label-default= label
+                    if block
+                        block
+                    mixin download_button(url)
+                        a.btn.btn-primary(href="#{url}" role="button") DownLoad
+                            i.glyphicon.glyphicon-download-alt
+                    mixin github_button(url)
+                        a.btn.btn-default(href="#{url}" role="button") GitHub
+                    mixin play_button(url)
+                        a.btn.btn-primary(href="#{url}" role="button") Play
+                            i.glyphicon.glyphicon-play
+
+        +product("たんくうぉー！(製作中)", "./img/tankwar.png", "C++11", "Siv3D")
+            p 即死系エンドレス全方位STG。画面が揺れたり爆発したりで騒がしいです。
+            +github_button("https://github.com/yashihei/TANK")
+        +product("弾幕じぇねれ～た～", "./img/danmaku.png", "C++11", "Siv3D")
+            p
+                | Siv3DのGUI機能を使って弾幕のパラメーターを設定してみたら案外いい感じに。
+                br
+                | コードはたったの100行程です。
+            +download_button("https://www.dropbox.com/s/8y26146bnu99xsn/danmaku_generator.zip?dl=1")
+            +github_button("https://gist.github.com/yashihei/aad13278d4a1ae8d8800")
+        +product("がんばれ！あといちゃん！", "./img/atoichan.png", "C++11", "Siv3D")
+            p 当時持ってた技術を全てを注いだ弾幕STGです。
+            +download_button("https://www.dropbox.com/s/jh3ttlag6d6mj7i/GANBARE_ATOICHAN.zip?dl=1")
+            +github_button("https://github.com/yashihei/GANBARE_ATOICHAN")
+        +product("TumblrViewer", "./img/tumblr_viewer.jpg", "C#", "WPF")
+            p
+                | プロコンでC#を多少触ったことがあったので、その経験を活かして製作しました。
+                br
+                | TumblrAPIを叩いたり、モダンなUIな感じです。
+                br
+                | コードビハインドを多用してるのでコードはあまり綺麗じゃないです。
+            +github_button("https://github.com/yashihei/TumblrViewer")
+        +product("オセロ", "./img/osero.jpg", "C++", "DXライブラリ")
+            p
+                | C++でのゲーム制作に苦手意識を感じてたのですが、とりあえず小さなものを作っていこうという目標を立てては作った習作です。
+                br
+                | <a href="http://yashihei.hatenablog.com/entry/2014/01/28/232134">この頃に他にも幾つかのミニゲームを製作しました。</a>
+            +download_button("https://www.dropbox.com/s/6ulghkee6fva07r/OSERO.zip?dl=1")
+            +github_button("https://github.com/yashihei/OSERO")
+        +product("TechnyanClicker", "./img/clicker.jpg", "JavaScript", "tmlib.js")
+            p
+                | 当時流行ってたCookieClickerのパロディゲーです。
+                br
+                | 実はてくにゃんが床に溜まるのはバグだったのですが、面白かったのでそのままにしてます。
+                br
+                | 弥生祭で展示したところ、n万回クリックされる程度には評判だったようです。
+            +play_button("./technyan_clicker")
+            +github_button("https://github.com/yashihei/technyan_clicker")
+        +product("FlatTetris", "./img/tetris.jpg", "JavaScript", "tmlib.js")
+            p
+                | 本当にただのテトリスなのですが、よりにもよってJavaScriptで書いたのでかなりの難産だった記憶があります。
+                | 配列の扱いが多少特徴的ですし、何より型がゆるゆるなんでそこらへんを適当にしてると地獄を見ます。見ました。
+                br
+                | tmlib.js自体はとても便利で扱い易いライブラリです。
+            +play_button("./flat_tetris")
+            +github_button("https://github.com/yashihei/flat_tetris")
+        +product("てくにゃん叩き", "./img/tataki.jpg", "DXライブラリ")
+            p
+                | 初めて完成させたゲームです。
+                br
+                | 元々弥生祭で弾幕STGを作って展示しようと思っていたのですが、時間も技術力も圧倒的に足りないことが分かり、急遽何でもいいからゲームを完成させることを目標に製作しました。
+
