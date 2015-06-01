@@ -4,7 +4,7 @@ block content
     .container
         .row
             .col-md-12
-                h1#product.page-header Welcome to yashihei.net
+                h1.page-header Welcome to yashihei.net
                 p yashihei.netへようこそ！このサイトではやしへいが製作したゲームなどの公開をしてます。
         .row
             .col-md-12
@@ -31,7 +31,7 @@ block content
 
         +product("たんくうぉー！(製作中)", "./img/tankwar.png", "C++11", "Siv3D")
             :markdown
-                即死系エンドレス全方位STG。画面が揺れたり爆発したりで騒がしいです。
+                即死系エンドレス全方位STG。画面が揺れたり爆発したりで騒がしいです。  
             +github_button("https://github.com/yashihei/TANK")
         +product("弾幕じぇねれ～た～", "./img/danmaku.png", "C++11", "Siv3D")
             :markdown
@@ -39,36 +39,39 @@ block content
                 コードはたったの100行程です。
             +download_button("https://www.dropbox.com/s/8y26146bnu99xsn/danmaku_generator.zip?dl=1")
             +github_button("https://gist.github.com/yashihei/aad13278d4a1ae8d8800")
-        +product("がんばれ！あといちゃん！", "./img/atoichan.png", "C++11", "Siv3D")
-            :markdown
-                当時持ってた技術を全てを注いだ弾幕STGです。
-            +download_button("https://www.dropbox.com/s/jh3ttlag6d6mj7i/GANBARE_ATOICHAN.zip?dl=1")
-            +github_button("https://github.com/yashihei/GANBARE_ATOICHAN")
         +product("TumblrViewer", "./img/tumblr_viewer.jpg", "C#", "WPF")
             :markdown
                 プロコンでC#を多少触ったことがあったので、その経験を活かして製作しました。  
                 TumblrAPIを叩いたり、モダンなUIな感じです。  
-                コードビハインドを多用してるのでコードはあまり綺麗じゃないです。
+                コードビハインドを多用してるのでコードはあまり綺麗じゃないです…。
             +github_button("https://github.com/yashihei/TumblrViewer")
-        +product("オセロ", "./img/osero.jpg", "C++", "DXライブラリ")
+        +product("がんばれ！あといちゃん！", "./img/atoichan.png", "C++11", "Siv3D")
             :markdown
-                C++でのゲーム制作に苦手意識を感じてたのですが、とりあえず小さなものを作っていこうという目標を立てては作った習作です。  
+                前回のように悔しい思いはしたくないと、全力でコンピューターフェスティバルに向けて作った弾幕STGです。  
+                今から考えるとこの作品が私にとって、ひとつのブレイクスルーだったのかなと思います。  
+                あといちゃんって名前はatoi()から来てるのですが、何故なのか本人にも良く分かってないです…。でも何となく響きが一番かわいい。えーとぅあいとか認められない。  
+            +download_button("https://www.dropbox.com/s/jh3ttlag6d6mj7i/GANBARE_ATOICHAN.zip?dl=1")
+            +github_button("https://github.com/yashihei/GANBARE_ATOICHAN")
+        +product("LIFEGAME", "./img/lifegame.jpg", "C++11", "DXライブラリ")
+            :markdown
+                C++でのゲーム製作に苦手意識を感じてたのですが、とりあえず小さなものを作っていこうという目標を立てては作った習作です。  
+                見た目は普通のライフゲームですが、STLのコンテナを使ったり、クラスで管理したり、C++11の機能を使ったりと色々挑戦しました。  
                 [この頃に他にも幾つかのミニゲームを製作しました。](http://yashihei.hatenablog.com/entry/2014/01/28/232134)
-            +download_button("https://www.dropbox.com/s/6ulghkee6fva07r/OSERO.zip?dl=1")
-            +github_button("https://github.com/yashihei/OSERO")
+            +download_button("https://www.dropbox.com/s/btqodigzhqeq8y7/LIFEGAME.zip?dl=1")
+            +github_button("https://github.com/yashihei/LIFEGAME")
         +product("TechnyanClicker", "./img/clicker.jpg", "JavaScript", "tmlib.js")
             :markdown
                 当時流行ってたCookieClickerのパロディゲーです。  
                 実はてくにゃんが床に溜まるのはバグだったのですが、面白かったのでそのままにしてます。  
                 弥生祭で展示したところ、n万回クリックされる程度には評判だったようです。
-            +play_button("./technyan_clicker")
+            +play_button("./technyan_clicker/")
             +github_button("https://github.com/yashihei/technyan_clicker")
         +product("FlatTetris", "./img/tetris.jpg", "JavaScript", "tmlib.js")
             :markdown
                 本当にただのテトリスなのですが、よりにもよってJavaScriptで書いたのでかなりの難産だった記憶があります。
                 配列の扱いが多少特徴的ですし、何より型がゆるゆるなんでそこらへんを適当にしてると地獄を見ます。見ました。  
                 tmlib.js自体はとても便利で扱い易いライブラリです。
-            +play_button("./flat_tetris")
+            +play_button("./flat_tetris/")
             +github_button("https://github.com/yashihei/flat_tetris")
         +product("てくにゃん叩き", "./img/tataki.jpg", "DXライブラリ")
             :markdown
