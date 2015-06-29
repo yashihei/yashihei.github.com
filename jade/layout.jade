@@ -15,14 +15,18 @@ html
         <![endif]-->
         body
             nav.navbar.navbar-inverse
-                div.container
-                    div.navbar-header
+                .container
+                    .navbar-header
+                        button.navbar-toggle(data-toggle="collapse" data-target=".target")
+                            - for (var i = 0; i < 3; i++)
+                                span.icon-bar
                         a.navbar-brand(href="/") yashihei.net
-                    ul.nav.navbar-nav
-                        li
-                            a(href="./about.html") About
-                        li
-                            a(target="_brank" href="http://yashihei.hatenablog.com") Blog
+                    .collapse.navbar-collapse.target
+                        ul.nav.navbar-nav
+                            li
+                                a(href="./about.html") About
+                            li
+                                a(target="_brank" href="http://yashihei.hatenablog.com") Blog
             block content
             footer
                 div.container
