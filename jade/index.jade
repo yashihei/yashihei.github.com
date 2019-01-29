@@ -12,7 +12,10 @@ block content
         mixin product(title, img_resource, ...labels)
             .row.product
                 .col-md-4
-                    img.img-thumbnail(src="#{img_resource}" alt="")
+                    if img_resource.match(".gif")
+                        img.img-thumbnail(data-gifffer="#{img_resource}" alt="")
+                    else
+                        img.img-thumbnail(src="#{img_resource}" alt="")
                 .col-md-8
                     h2= title
                     p
