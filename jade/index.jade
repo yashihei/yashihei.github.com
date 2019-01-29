@@ -13,7 +13,7 @@ block content
             .row.product
                 .col-md-4
                     if img_resource.match(".gif")
-                        img.img-thumbnail(data-gifffer="#{img_resource}" alt="")
+                        img.img-thumbnail(data-gifffer="#{img_resource}" data-gifffer-alt="")
                     else
                         img.img-thumbnail(src="#{img_resource}" alt="")
                 .col-md-8
