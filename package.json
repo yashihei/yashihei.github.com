@@ -4,8 +4,8 @@
   "description": "Personal website with Pug templates",
   "private": true,
   "scripts": {
-    "build": "pug jade/ -o . -P",
-    "watch": "pug jade/ -o . -P -w",
+    "build": "pug jade/index.pug jade/about.pug -o . -P",
+    "watch": "pug jade/index.pug jade/about.pug -o . -P -w",
     "dev": "npm run watch"
   },
   "devDependencies": {
