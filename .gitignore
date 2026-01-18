@@ -27,7 +27,6 @@ logs
 .env
 
 # IDE files
-.vscode/
 .idea/
 *.swp
 *.swo
