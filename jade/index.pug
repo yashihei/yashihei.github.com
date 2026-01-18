@@ -1,5 +1,44 @@
 extends layout
 
+mixin download_button(url)
+    a.btn.btn-primary(href=url role="button")
+        i.fa.fa-download
+        |  DownLoad
+
+mixin github_button(url)
+    a.btn.btn-default(href=url role="button")
+        i.fa.fa-github
+        |  GitHub
+
+mixin play_button(url)
+    a.btn.btn-primary(href=url role="button")
+        i.fa.fa-gamepad
+        |  Play
+
+mixin product(title, img_resource, ...labels)
+    .row.product
+        .col-md-4
+            - var isGif = img_resource.endsWith('.gif')
+            if isGif
+                img.img-thumbnail(
+                    data-gifffer=img_resource
+                    data-gifffer-alt=title
+                )
+            else
+                img.img-thumbnail(
+                    src=img_resource
+                    alt=title
+                )
+        .col-md-8
+            h2= title
+            if labels && labels.length
+                p.labels
+                    each label in labels
+                        span.label.label-default= label
+                        | &nbsp;
+            if block
+                block
+
 block content
     .container
         .row
@@ -9,32 +48,6 @@ block content
         .row
             .col-md-12
                 h1.page-header 作ったもの
-        mixin product(title, img_resource, ...labels)
-            .row.product
-                .col-md-4
-                    if img_resource.match(".gif")
-                        img.img-thumbnail(data-gifffer=img_resource data-gifffer-alt="")
-                    else
-                        img.img-thumbnail(src=img_resource alt="")
-                .col-md-8
-                    h2= title
-                    p
-                        each label in labels
-                            span.label.label-default= label
-                    if block
-                        block
-                    mixin download_button(url)
-                        a.btn.btn-primary(href=url role="button")
-                            i.fa.fa-download
-                            | DownLoad
-                    mixin github_button(url)
-                        a.btn.btn-default(href=url role="button")
-                            i.fa.fa-github
-                            | GitHub
-                    mixin play_button(url)
-                        a.btn.btn-primary(href=url role="button")
-                            i.fa.fa-gamepad
-                            | Play
         +product("場違戦隊ヨメンジャー", "./img/Yomenja.gif", "Unity", "Rx", "チーム制作")
             :markdown
                 担当: 企画 コーディング コードレビュー その他色々  
