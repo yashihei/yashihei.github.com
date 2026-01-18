@@ -9,6 +9,7 @@
     "dev": "npm run watch"
   },
   "devDependencies": {
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "jstransformer-markdown": "^1.1.1"
   }
 }
