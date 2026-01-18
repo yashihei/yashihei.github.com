@@ -13,9 +13,9 @@ block content
             .row.product
                 .col-md-4
                     if img_resource.match(".gif")
-                        img.img-thumbnail(data-gifffer="#{img_resource}" data-gifffer-alt="")
+                        img.img-thumbnail(data-gifffer=img_resource data-gifffer-alt="")
                     else
-                        img.img-thumbnail(src="#{img_resource}" alt="")
+                        img.img-thumbnail(src=img_resource alt="")
                 .col-md-8
                     h2= title
                     p
@@ -24,15 +24,15 @@ block content
                     if block
                         block
                     mixin download_button(url)
-                        a.btn.btn-primary(href="#{url}" role="button")
+                        a.btn.btn-primary(href=url role="button")
                             i.fa.fa-download
                             | DownLoad
                     mixin github_button(url)
-                        a.btn.btn-default(href="#{url}" role="button")
+                        a.btn.btn-default(href=url role="button")
                             i.fa.fa-github
                             | GitHub
                     mixin play_button(url)
-                        a.btn.btn-primary(href="#{url}" role="button")
+                        a.btn.btn-primary(href=url role="button")
                             i.fa.fa-gamepad
                             | Play
         +product("場違戦隊ヨメンジャー", "./img/Yomenja.gif", "Unity", "Rx", "チーム制作")
